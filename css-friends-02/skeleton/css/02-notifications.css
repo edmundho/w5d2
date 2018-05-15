@@ -23,6 +23,7 @@
   background-color: white;
   color: black;
   border-radius: 5px;
+
 }
 
 
@@ -32,12 +33,23 @@
 }
 
 .dropdown-notifications li {
-  border: 1px solid #ccc;  
+  border: 1px solid #ccc;
   /* padding: 10px 15px; */
-  
+
   font-size: 14px;
 }
 
 .dropdown-notifications li:hover {
   background: #eee;
+}
+
+.dropdown-notifications li:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+
+img {
+  height: 40px;
+  width: 40px;
 }
