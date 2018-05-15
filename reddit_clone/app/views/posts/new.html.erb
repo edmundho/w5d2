@@ -1,0 +1,27 @@
+<h1>Post.malone#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+<form action="<%= sub_posts_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label for="">
+    Title:
+    <input type="text" name="post[title]">
+  </label>
+  <label for="">
+  URL:
+    <input type="text" name="post[url]">
+  </label>
+  
+  
+  <label for="">
+    Content:
+    <textarea name="post[content]" rows="8" cols="80"></textarea>
+  </label>
+  
+  <% Sub.all.each do |sub| %>
+    <label><%= sub.title %>
+      <input type="checkbox" value="<%= sub.id %>" name="post[sub_ids][]" <%= "checked" if @post.sub_ids.include?(sub.id) %> />
+    </label>
+  <% end %>
+  
+  <input type="submit">
+</form>

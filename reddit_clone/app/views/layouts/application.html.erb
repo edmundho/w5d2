@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppAcademyQuestions</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <% if current_user.nil? %>
+      <a href="<%= new_session_url %>">Sign In</a>
+      <a href="<%= new_user_url %>">Sign Up</a>
+    <% else %>
+    <nav>
+      <ul>
+        <li>Reddit</li>
+      </ul>
+      <ul>
+        <li><img src="https://media.giphy.com/media/rdbyJJX8NbSBW/giphy.gif"></li>
+        <li><%= current_user.username %></li>
+        <li><%= button_to "Sign Out", session_url, method: :delete %></li>
+      </ul>
+    </nav>
+    <% end %>
+    <%= render 'layouts/errors' %>
+    <%= yield %>
+  </body>
+</html>
