@@ -3,7 +3,7 @@
 
 <br><br>
 
-
+Posts:
 <ul>
   <% @sub.posts.each do |post| %>
     <li><a href="<%= post_url(post) %>"><%= post.title %></a></li>
@@ -13,7 +13,9 @@
   
 <br><br>
 <a href="<%=edit_sub_url(@sub)%>">Edit Sub </a>
-<a href="<%=subs_url%>">Get the fuck out of here </a>
+<br>
+<a href="<%=subs_url%>">Home</a>
+<br>
 <a href="<%=new_sub_post_url(@sub)%>">Make New Post </a>
 
 

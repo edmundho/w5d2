@@ -1,17 +1,37 @@
-<h1>Posts#show</h1>
 
+<h1><%= @post.title %> by <%= @post.author.username %></h1>
 
-<h2><%= @post.title %> by <%= @post.author.username %></h2>
+  <div><p><%= @post.content %></p></div>
+  
+  
 
-
-  <p><%= @post.content %></p>
-  Subs
-  <ul>
-  <% @post.subs.each do |sub| %>
-    <li><%= sub.title %> : <%= sub.description %> </li>
-  <% end %>
-  </ul>
   
   <% if current_user.id == @post.author_id %>
     <a href="<%= edit_post_url(@post)%>">Edit Post</a>
   <% end %>
+  
+  
+  <br>
+  <br>
+  
+  <h2>Comments</h2>
+  <ul>
+  <% @post.comments.each do |comment| %>
+    
+    <li class="content"><strong><%= comment.author.username %>:</strong> <%= comment.content %></li>
+  <% end %>
+  </ul>
+  
+  
+    
+  
+<a href="<%= new_post_comment_url(@post) %>">Add Comment</a>
+
+
+<br><br>
+Affilitated Subs
+<ul>
+<% @post.subs.each do |sub| %>
+  <li><a href="<%=sub_url(sub)%>"><%= sub.title %>:</a> <%= sub.description %> </li>
+<% end %>
+</ul>

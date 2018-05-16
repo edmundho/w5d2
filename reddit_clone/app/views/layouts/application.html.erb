@@ -16,16 +16,16 @@
     <% else %>
     <nav>
       <ul>
-        <li>Reddit</li>
-      </ul>
-      <ul>
         <li><img src="https://media.giphy.com/media/rdbyJJX8NbSBW/giphy.gif"></li>
-        <li><%= current_user.username %></li>
+        <li>Welcome, <%= current_user.username %></li>
         <li><%= button_to "Sign Out", session_url, method: :delete %></li>
       </ul>
     </nav>
     <% end %>
+    <h1 style="text-align: center;">Clone</h1>
     <%= render 'layouts/errors' %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
